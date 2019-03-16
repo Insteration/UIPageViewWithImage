@@ -10,8 +10,6 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
-//    let pageControl: UIPageControl = UIPageControl.appearance(whenContainedInInstancesOf: [PageViewController.self])
-    
     private (set) lazy var controllers: [UIViewController] = {
         return [
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "First"),
@@ -35,16 +33,14 @@ class PageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(displayP3Red: 0, green: 0.8, blue: 0.5, alpha: 0.8)
+
 
         if let first = controllers.first {
             setViewControllers([first], direction: .forward, animated: true, completion: nil)
             dataSource = self
         }
-        
-        
-//        pageControl.pageIndicatorTintColor = UIColor.green
-
-
     }
 }
 
